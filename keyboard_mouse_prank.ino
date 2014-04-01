@@ -49,7 +49,6 @@ void move_mouse(int times) {
 }
 
 void send_cmd_tab(int times) {
-
   Keyboard.press(KEY_LEFT_GUI);
   delay(30);
 
