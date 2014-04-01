@@ -1,5 +1,5 @@
-#define MIN_DELAY 360
-#define MAX_DELAY 720
+#define MIN_DELAY 120
+#define MAX_DELAY 360
 
 int times;
 int counter;
@@ -13,7 +13,7 @@ void setup() {
 
 void loop() {
   if ( counter <= 0 ) {
-    times = random(2, 6);
+    times = random(3, 7);
     
     choice = random(2);    
     if (choice) {
