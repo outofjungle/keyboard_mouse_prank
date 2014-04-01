@@ -1,11 +1,14 @@
 
-const int pin2 = 2;
-const int pin3 = 3;
+const byte pin2 = 2;
+const byte pin3 = 3;
 
 int pin2_old_state = HIGH;
 int pin3_old_state = HIGH;
 
 int times;
+int counter;
+int choice;
+
 void setup() {
   pinMode(pin2, INPUT);
   pinMode(pin3, INPUT);
@@ -17,16 +20,29 @@ void loop() {
   int pin2_state = digitalRead(pin2);
   int pin3_state = digitalRead(pin3);
 
-  times = 1 + rand() % 5;
+  times = random(1, 6);
 
   if ((pin2_state != pin2_old_state) && (pin2_state == HIGH)) {
     move_mouse(times);
     delay(30);
   }
-  
-  if ((pin3_state != pin3_old_state) && (pin3_state == HIGH)) {
+  else if ((pin3_state != pin3_old_state) && (pin3_state == HIGH)) {
     send_cmd_tab(times);
   }
+  else if ( counter <= 0 ) {
+    choice = random(2);
+    
+    if (choice) {
+      move_mouse(times);
+    } else {
+      send_cmd_tab(times);
+    }
+    counter = random(3, 6);
+  }
+  else {
+    counter--;
+    delay(1000);
+  }  
   
   pin2_old_state = pin2_state; 
   pin3_old_state = pin3_state;
@@ -35,10 +51,10 @@ void loop() {
 
 void move_mouse(int times) {
   for(int i=0; i < times; i++) {  
-    int r = 10 + rand() % 20;
-    float t = (float) ( rand() % 6 );
+    int r = random(10, 20);
+    float t = (float) random(6);
     
-    float dir = (rand() % 1) ? -1.0 : 1.0;
+    float dir = random(2) ? -1.0 : 1.0;
     for(int itr = 0; itr < 30; itr++) {
       t = t + (dir * 0.1);
       
