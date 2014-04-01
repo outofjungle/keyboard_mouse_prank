@@ -1,5 +1,5 @@
-#define MIN_DELAY 120
-#define MAX_DELAY 360
+#define MIN_DELAY 60
+#define MAX_DELAY 90
 
 int times;
 int counter;
