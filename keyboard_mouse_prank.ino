@@ -1,5 +1,5 @@
-#define MIN_DELAY 60
-#define MAX_DELAY 90
+#define MIN_DELAY 30
+#define MAX_DELAY 60
 
 int times;
 int counter;
@@ -8,6 +8,7 @@ int choice;
 void setup() {
   Keyboard.begin();
   Mouse.begin();
+  randomSeed(analogRead(0));
   counter = MIN_DELAY;
 }
 
