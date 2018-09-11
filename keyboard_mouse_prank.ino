@@ -1,3 +1,6 @@
+#include <Keyboard.h>
+#include <Mouse.h>
+
 #define MIN_DELAY 30
 #define MAX_DELAY 60
 
